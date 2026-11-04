@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MRH Solutions | Clinical AI &amp; Clinical Decision Support Consulting</title>
+  <meta name="description" content="MRH Solutions helps health systems and digital health companies design, validate, and ship clinical AI and clinical decision support. PharmD/MBA-led consulting in CDS, FHIR, CDS Hooks, clinical terminology, and product leadership.">
+  <link rel="canonical" href="https://mrhsolutions.co/">
+  <meta name="theme-color" content="#0f2622">
+  <meta name="color-scheme" content="light">
+
+  <!-- Social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MRH Solutions">
+  <meta property="og:title" content="MRH Solutions | Clinical AI &amp; Clinical Decision Support Consulting">
+  <meta property="og:description" content="PharmD/MBA-led consulting for clinical AI, clinical decision support, interoperability, and product leadership.">
+  <meta property="og:url" content="https://mrhsolutions.co/">
+  <meta property="og:image" content="https://mrhsolutions.co/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MRH Solutions: clinical AI and clinical decision support consulting">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <link rel="preload" href="assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/newsreader-latin-wght-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Flag JS and motion support before first paint so intro animations never flash -->
+  <script>
+    (function (root) {
+      root.classList.replace('no-js', 'js');
+      if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        root.classList.add('motion');
+      }
+    })(document.documentElement);
+  </script>
+  <script src="assets/js/main.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MRH Solutions",
+    "url": "https://mrhsolutions.co/",
+    "email": "mailto:matt@mrhsolutions.co",
+    "logo": "https://mrhsolutions.co/assets/img/apple-touch-icon.png",
+    "description": "Consulting in clinical AI, clinical decision support, healthcare interoperability, and product leadership.",
+    "founder": {
+      "@type": "Person",
+      "name": "Matt Hiott",
+      "honorificSuffix": "PharmD, MBA",
+      "jobTitle": "Founder"
+    },
+    "knowsAbout": [
+      "Clinical decision support",
+      "Clinical AI",
+      "HL7 FHIR",
+      "CDS Hooks",
+      "RxNorm",
+      "SNOMED CT",
+      "Epic",
+      "Cerner",
+      "Product management"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Icon sprite -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 16 16"><path d="M8 13.5v-11M3.5 7 8 2.5 12.5 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><rect x="5.5" y="5.5" width="8" height="8" rx="1.75"/><path d="M10.5 5.5V4.25A1.75 1.75 0 0 0 8.75 2.5h-4.5A1.75 1.75 0 0 0 2.5 4.25v4.5c0 .97.78 1.75 1.75 1.75H5.5"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M12 8.5v4M12 15.5h.01"/></g></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="MRH Solutions, back to top">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <rect width="32" height="32" rx="9" fill="#0f2622"/>
+          <path d="M16 9.5v6.25M16 15.75 10.5 21.75M16 15.75 21.5 21.75" fill="none" stroke="#f4f0e6" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="16" cy="9.5" r="2.75" fill="#f4f0e6"/>
+          <circle cx="10.5" cy="22" r="2.6" fill="#0f2622" stroke="#f4f0e6" stroke-width="1.6"/>
+          <circle cx="21.5" cy="22" r="3" fill="#e2a877"/>
+        </svg>
+        <span class="brand-word">MRH <em>Solutions</em></span>
+      </a>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#work">Experience</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn-primary btn-sm header-cta" href="#contact">
+        <span class="btn-label">Start a conversation</span>
+        <span class="btn-icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span></span>
+      </button>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  </header>
+
+  <!-- Full-screen menu for small screens (opened by .menu-toggle) -->
+  <div class="mobile-menu" id="mobile-menu">
+    <nav class="mobile-menu-nav" aria-label="Mobile">
+      <ol>
+        <li><a href="#services"><span class="mobile-menu-num">01</span>Services</a></li>
+        <li><a href="#approach"><span class="mobile-menu-num">02</span>Approach</a></li>
+        <li><a href="#work"><span class="mobile-menu-num">03</span>Experience</a></li>
+        <li><a href="#about"><span class="mobile-menu-num">04</span>About</a></li>
+        <li><a href="#contact"><span class="mobile-menu-num">05</span>Contact</a></li>
+      </ol>
+    </nav>
+    <div class="mobile-menu-foot">
+      <a class="btn btn-primary" href="#contact">
+        <span class="btn-label">Start a conversation</span>
+        <span class="btn-icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="mobile-menu-email" href="mailto:matt@mrhsolutions.co">matt@mrhsolutions.co</a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <ul class="hero-tags intro intro-1">
+            <li>Clinical AI</li>
+            <li>Clinical Decision Support</li>
+            <li>Product Leadership</li>
+          </ul>
+
+          <h1 id="hero-title" class="hero-title">
+            <span class="line"><span>Clinical evidence,</span></span>
+            <span class="line"><span>built into software</span></span>
+            <span class="line"><span><em>clinicians trust.</em></span></span>
+          </h1>
+
+          <p class="hero-lead intro intro-2">
+            MRH Solutions helps health systems and digital health companies design, validate, and ship
+            clinical AI and decision support. The work is led by a pharmacist with a decade of hands-on
+            CDS, interoperability, and product experience.
+          </p>
+
+          <div class="hero-actions intro intro-3">
+            <a class="btn btn-primary" href="#contact">
+              <span class="btn-label">Start a conversation</span>
+              <span class="btn-icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span>
+            </a>
+            <a class="link-arrow" href="#work">
+              See selected work
+              <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+          </div>
+
+          <div class="hero-principal intro intro-4">
+            <span class="avatar avatar-sm" aria-hidden="true">MH</span>
+            <p><strong>Matt Hiott, PharmD, MBA</strong><span>Founder, MRH Solutions</span></p>
+          </div>
+        </div>
+
+        <!-- Decorative illustration: a CDS Hooks-style recommendation and the guideline lifecycle -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-panel" data-parallax>
+            <div class="cds-card" data-depth="1">
+              <div class="cds-top">
+                <span class="cds-hook"><span class="cds-pulse"></span>order-sign</span>
+                <span class="cds-meta">CDS Hooks · FHIR R4</span>
+              </div>
+              <dl class="cds-context">
+                <div><dt>Patient</dt><dd>78 y · 61 kg</dd></div>
+                <div><dt>CrCl</dt><dd>24 mL/min</dd></div>
+                <div class="span-2"><dt>New order</dt><dd>Enoxaparin 40 mg SC once daily</dd></div>
+              </dl>
+              <div class="cds-alert">
+                <div class="cds-alert-head">
+                  <span class="cds-indicator">Warning</span>
+                  <strong>Renal dose adjustment</strong>
+                </div>
+                <p>CrCl is below 30 mL/min. For VTE prophylaxis, consider 30&nbsp;mg SC once daily.</p>
+                <div class="cds-actions">
+                  <span class="cds-btn cds-btn-primary">Accept suggestion</span>
+                  <span class="cds-btn">Override with reason</span>
+                </div>
+              </div>
+              <div class="cds-foot">
+                <span class="chip">RxNorm-normalized</span>
+                <span class="chip">SNOMED CT-coded</span>
+                <span class="chip">Clinician-reviewed</span>
+              </div>
+            </div>
+
+            <div class="lifecycle-card" data-depth="2">
+              <p class="lifecycle-title">Guideline lifecycle</p>
+              <ol class="lifecycle-steps">
+                <li class="done">Evidence review</li>
+                <li class="done">Computable logic</li>
+                <li class="done">EHR build &amp; test</li>
+                <li class="current">Clinical validation</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Proof points ============ -->
+    <section class="proof" aria-label="At a glance">
+      <div class="container">
+        <ul class="proof-list">
+          <li class="reveal">
+            <span class="proof-value">100+</span>
+            <span class="proof-label">clinical decision support guidelines built</span>
+          </li>
+          <li class="reveal">
+            <span class="proof-value">~10 years</span>
+            <span class="proof-label">in clinical decision support</span>
+          </li>
+          <li class="reveal">
+            <span class="proof-value">Epic &amp; Cerner</span>
+            <span class="proof-label">EHR environments delivered into</span>
+          </li>
+          <li class="reveal">
+            <span class="proof-value">PharmD, MBA</span>
+            <span class="proof-label">clinical depth with business training</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ Services ============ -->
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-index reveal"><span class="num">01</span><span class="rule" aria-hidden="true"></span>Services</p>
+          <div class="section-head-main">
+            <h2 id="services-title" class="reveal">Clinical depth from strategy to shipped product.</h2>
+            <p class="section-lead reveal">
+              Engagements are scoped to what you need: a focused advisory sprint, hands-on design and build
+              support, or ongoing product leadership.
+            </p>
+          </div>
+        </header>
+
+        <ol class="service-list">
+          <li class="service reveal">
+            <div class="service-heading">
+              <span class="service-num" aria-hidden="true">01</span>
+              <h3 class="service-title">Clinical AI strategy &amp; validation</h3>
+            </div>
+            <p class="service-desc">Decide where AI belongs in clinical workflow, then show it is safe and useful before it reaches patients.</p>
+            <ul class="service-points">
+              <li>Use-case assessment and clinical risk review</li>
+              <li>Evaluation plans with clinician-in-the-loop review</li>
+              <li>Guardrails, explainability, and governance input</li>
+            </ul>
+          </li>
+
+          <li class="service reveal">
+            <div class="service-heading">
+              <span class="service-num" aria-hidden="true">02</span>
+              <h3 class="service-title">Clinical decision support design</h3>
+            </div>
+            <p class="service-desc">Evidence-based logic that fires at the right moment for the right patient, without adding to alert fatigue.</p>
+            <ul class="service-points">
+              <li>Guideline-to-logic translation and rule authoring</li>
+              <li>Alert and workflow design for Epic and Cerner (Oracle Health)</li>
+              <li>Content lifecycle: review, versioning, and maintenance</li>
+            </ul>
+          </li>
+
+          <li class="service reveal">
+            <div class="service-heading">
+              <span class="service-num" aria-hidden="true">03</span>
+              <h3 class="service-title">Interoperability &amp; clinical terminology</h3>
+            </div>
+            <p class="service-desc">Standards-based integration that carries across sites and EHRs instead of being rebuilt for each one.</p>
+            <ul class="service-points">
+              <li>CDS Hooks service and card design</li>
+              <li>FHIR resource mapping and data requirements</li>
+              <li>RxNorm and SNOMED CT code binding and value sets</li>
+            </ul>
+          </li>
+
+          <li class="service reveal">
+            <div class="service-heading">
+              <span class="service-num" aria-hidden="true">04</span>
+              <h3 class="service-title">Product leadership</h3>
+            </div>
+            <p class="service-desc">Fractional or interim product management from someone fluent in both clinical and engineering conversations.</p>
+            <ul class="service-points">
+              <li>Roadmaps, requirements, and prioritization</li>
+              <li>Discovery with clinical stakeholders</li>
+              <li>Launch readiness for clinical products</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="standards reveal">
+          <p class="standards-label">Working fluency in</p>
+          <ul class="standards-list">
+            <li>Epic</li>
+            <li>Cerner (Oracle Health)</li>
+            <li>HL7 FHIR</li>
+            <li>CDS Hooks</li>
+            <li>RxNorm</li>
+            <li>SNOMED CT</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Approach ============ -->
+    <section class="section section-dark" id="approach" aria-labelledby="approach-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-index reveal"><span class="num">02</span><span class="rule" aria-hidden="true"></span>Approach</p>
+          <div class="section-head-main">
+            <h2 id="approach-title" class="reveal">A clear path from clinical question to working software.</h2>
+            <p class="section-lead reveal">
+              The same discipline behind more than 100 delivered guidelines, applied to your problem:
+              start with the clinical decision, then design, validate, and sustain.
+            </p>
+          </div>
+        </header>
+
+        <ol class="steps" data-observe>
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">01</span>
+            <h3>Frame the clinical decision</h3>
+            <p>Start from the decision, not the technology: who decides, when, with what information, and what could go wrong.</p>
+            <p class="step-output"><span>Typical outputs</span>Use-case brief, clinical risk review</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">02</span>
+            <h3>Design the logic and data</h3>
+            <p>Translate evidence into computable logic or AI requirements, bound to the right FHIR resources and terminology.</p>
+            <p class="step-output"><span>Typical outputs</span>Logic specifications, data and terminology map</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">03</span>
+            <h3>Validate with clinicians</h3>
+            <p>Test against realistic patient scenarios, review with practicing clinicians, and agree on clear release criteria.</p>
+            <p class="step-output"><span>Typical outputs</span>Test scenarios, release criteria</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">04</span>
+            <h3>Launch and sustain</h3>
+            <p>Plan the rollout, watch signals like overrides and clinician feedback, and keep content current as evidence changes.</p>
+            <p class="step-output"><span>Typical outputs</span>Launch plan, monitoring and maintenance cadence</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ Selected experience ============ -->
+    <section class="section section-alt" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-index reveal"><span class="num">03</span><span class="rule" aria-hidden="true"></span>Selected experience</p>
+          <div class="section-head-main">
+            <h2 id="work-title" class="reveal">Representative work in CDS and clinical AI.</h2>
+            <p class="section-lead reveal">
+              A few examples of the problems I’ve worked on. Organization names and identifying details
+              are left out to respect client and employer confidentiality.
+            </p>
+          </div>
+        </header>
+
+        <div class="cases">
+          <article class="case reveal" aria-labelledby="case-1-title">
+            <header class="case-head">
+              <p class="case-meta"><span class="case-num">01</span><span class="case-sector">Clinical content · Health IT</span></p>
+              <ul class="case-tags">
+                <li>Epic</li><li>Cerner</li><li>RxNorm</li><li>SNOMED CT</li><li>Content governance</li>
+              </ul>
+            </header>
+            <div class="case-main">
+              <h3 class="case-title" id="case-1-title">Scaling a guideline library across Epic and Cerner</h3>
+              <dl class="case-details">
+                <div>
+                  <dt>Challenge</dt>
+                  <dd>Evidence-based recommendations had to reach clinicians inside different EHRs, each with its own build conventions, data model, and constraints, without fragmenting into site-specific one-offs.</dd>
+                </div>
+                <div>
+                  <dt>Approach</dt>
+                  <dd>Built a structured path from clinical evidence to computable logic: explicit inclusion and exclusion criteria, terminology bound to RxNorm and SNOMED&nbsp;CT, and testing against realistic patient scenarios before release into Epic and Cerner environments.</dd>
+                </div>
+              </dl>
+            </div>
+            <div class="case-outcome">
+              <p class="case-outcome-label">Outcome</p>
+              <p class="case-outcome-text">More than 100 clinical decision support guidelines built and maintained over roughly a decade, with a repeatable process from evidence review to deployment.</p>
+            </div>
+          </article>
+
+          <article class="case reveal" aria-labelledby="case-2-title">
+            <header class="case-head">
+              <p class="case-meta"><span class="case-num">02</span><span class="case-sector">Digital health · EHR integration</span></p>
+              <ul class="case-tags">
+                <li>CDS Hooks</li><li>FHIR R4</li><li>RxNorm</li><li>Workflow design</li>
+              </ul>
+            </header>
+            <div class="case-main">
+              <h3 class="case-title" id="case-2-title">Point-of-care recommendations with CDS Hooks and FHIR</h3>
+              <dl class="case-details">
+                <div>
+                  <dt>Challenge</dt>
+                  <dd>Guidance needed to show up inside the ordering workflow, at the moment of decision and using data the EHR already holds, rather than in a separate tool clinicians had to remember to open.</dd>
+                </div>
+                <div>
+                  <dt>Approach</dt>
+                  <dd>Defined the hook triggers (such as order-select and order-sign), the FHIR resources and prefetch each rule depends on, medication normalization to RxNorm, and card designs with clear rationale and actionable suggestions, weighed against alert burden.</dd>
+                </div>
+              </dl>
+            </div>
+            <div class="case-outcome">
+              <p class="case-outcome-label">Outcome</p>
+              <p class="case-outcome-text">A standards-based integration pattern that delivers recommendations in workflow and can be reused across sites instead of rebuilt for each one.</p>
+            </div>
+          </article>
+
+          <article class="case reveal" aria-labelledby="case-3-title">
+            <header class="case-head">
+              <p class="case-meta"><span class="case-num">03</span><span class="case-sector">Clinical AI · Product leadership</span></p>
+              <ul class="case-tags">
+                <li>Clinical AI</li><li>Evaluation</li><li>Product strategy</li><li>Safety</li>
+              </ul>
+            </header>
+            <div class="case-main">
+              <h3 class="case-title" id="case-3-title">Clinical guardrails for an AI-enabled product</h3>
+              <dl class="case-details">
+                <div>
+                  <dt>Challenge</dt>
+                  <dd>Turning model output into recommendations clinicians can trust takes more than accuracy metrics. It needs clinical context, clear boundaries, and a way to catch failure modes before they reach patients.</dd>
+                </div>
+                <div>
+                  <dt>Approach</dt>
+                  <dd>Led product direction that paired AI capabilities with established CDS discipline: grounding outputs in coded clinical data, defining where human review is required, and building clinician-reviewed evaluation scenarios into release criteria.</dd>
+                </div>
+              </dl>
+            </div>
+            <div class="case-outcome">
+              <p class="case-outcome-label">Outcome</p>
+              <p class="case-outcome-text">A roadmap and release process that clinical, data science, and engineering teams could align on, with safety and explainability treated as product requirements from the start.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ About ============ -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-head section-head-tight">
+          <p class="section-index reveal"><span class="num">04</span><span class="rule" aria-hidden="true"></span>About</p>
+          <div class="section-head-main">
+            <h2 id="about-title" class="reveal">Clinical judgment, product discipline.</h2>
+          </div>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p class="about-intro">
+              MRH Solutions is the independent consulting practice of Matt Hiott, PharmD, MBA.
+            </p>
+            <p>
+              I started in retail pharmacy and clinical operations, where I saw how medication decisions
+              actually get made: under time pressure, with incomplete information, and with a patient waiting.
+              That vantage point has shaped everything since.
+            </p>
+            <p>
+              For roughly the past decade I’ve worked in clinical decision support. I’ve built more than 100
+              guidelines delivered across Epic and Cerner environments, worked hands-on with FHIR, CDS Hooks,
+              RxNorm, and SNOMED&nbsp;CT, and moved into product management leadership, guiding the teams that
+              turn clinical evidence into software.
+            </p>
+            <p>
+              Today I help organizations apply that same rigor to clinical AI and decision support, so what
+              they ship works in real clinical workflows, not only in a demo.
+            </p>
+          </div>
+
+          <div class="profile-card reveal" role="group" aria-label="Background at a glance">
+            <div class="profile-head">
+              <!-- To use a headshot, replace this span with:
+                   <img class="avatar" src="assets/img/headshot.jpg" alt="Matt Hiott" width="72" height="72"> -->
+              <span class="avatar" aria-hidden="true">MH</span>
+              <div>
+                <p class="profile-name">Matt Hiott</p>
+                <p class="profile-role">PharmD, MBA · Founder, MRH Solutions</p>
+              </div>
+            </div>
+            <dl class="profile-facts">
+              <div><dt>Training</dt><dd>Doctor of Pharmacy (PharmD), MBA</dd></div>
+              <div><dt>Focus</dt><dd>Clinical AI, clinical decision support, product leadership</dd></div>
+              <div><dt>EHR environments</dt><dd>Epic, Cerner (Oracle Health)</dd></div>
+              <div><dt>Standards</dt><dd>FHIR, CDS Hooks, RxNorm, SNOMED CT</dd></div>
+              <div><dt>Foundation</dt><dd>Retail pharmacy and clinical operations</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Call to action ============ -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta reveal" data-spotlight>
+          <div class="cta-copy">
+            <h2 id="cta-title">Have a clinical AI or decision support initiative in motion?</h2>
+            <p>
+              Whether you’re validating an AI use case, scaling a guideline library, or need product
+              leadership that bridges clinical and technical teams, a short conversation is the best place to start.
+            </p>
+            <ul class="cta-modes">
+              <li>Advisory &amp; second opinions</li>
+              <li>Project-based design and build</li>
+              <li>Fractional product leadership</li>
+            </ul>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-light" href="#contact">
+              <span class="btn-label">Start a conversation</span>
+              <span class="btn-icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span>
+            </a>
+            <a class="cta-email link-sweep" href="mailto:matt@mrhsolutions.co">or email matt@mrhsolutions.co</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <p class="section-index reveal"><span class="num">05</span><span class="rule" aria-hidden="true"></span>Contact</p>
+
+        <div class="contact-head">
+          <h2 id="contact-title" class="reveal">Let’s talk about what you’re building.</h2>
+          <p class="section-lead reveal">
+            Share a little about your organization, the problem you’re working on, and your timeline.
+            I’ll follow up by email to find a time to talk.
+          </p>
+        </div>
+
+        <div class="contact-aside reveal">
+          <div class="contact-direct">
+            <p class="contact-direct-label">Prefer email?</p>
+            <div class="contact-email-row">
+              <a class="contact-email link-sweep" href="mailto:matt@mrhsolutions.co">matt@mrhsolutions.co</a>
+              <button class="copy-btn" type="button" data-copy="matt@mrhsolutions.co" aria-label="Copy email address" hidden>
+                <svg aria-hidden="true"><use href="#i-copy"/></svg>
+                <span class="copy-btn-label">Copy</span>
+              </button>
+              <span class="sr-only" role="status" data-copy-status></span>
+            </div>
+          </div>
+          <p class="phi-note">
+            <svg aria-hidden="true"><use href="#i-shield"/></svg>
+            Please don’t include patient health information (PHI) in your message.
+          </p>
+        </div>
+
+        <div class="form-card reveal">
+          <!--
+            Contact form backend: Formspree (form ID xzeeogav).
+            - With JavaScript, main.js validates the fields, sends the form in the background,
+              and shows a confirmation without leaving the page.
+            - Without JavaScript, the browser posts straight to Formspree, which shows its own
+              thank-you page.
+            - To change services, replace the action URL. Setting it to mailto:you@example.com
+              makes the form open the visitor's email app instead.
+          -->
+          <form id="contact-form" class="contact-form"
+                action="https://formspree.io/f/xzeeogav"
+                method="POST"
+                data-contact-email="matt@mrhsolutions.co">
+
+            <!-- Spam honeypot: humans never see or fill this field -->
+            <div class="hp" aria-hidden="true">
+              <label for="hp-field">Leave this field empty</label>
+              <input id="hp-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <div class="control">
+                  <input id="name" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="name-error">
+                  <span class="control-line" aria-hidden="true"></span>
+                </div>
+                <p class="field-error" id="name-error" hidden></p>
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <div class="control">
+                  <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby="email-error">
+                  <span class="control-line" aria-hidden="true"></span>
+                </div>
+                <p class="field-error" id="email-error" hidden></p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="company">Company <span class="optional">(optional)</span></label>
+              <div class="control">
+                <input id="company" name="company" type="text" autocomplete="organization" maxlength="160">
+                <span class="control-line" aria-hidden="true"></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <div class="control">
+                <textarea id="message" name="message" rows="4" required maxlength="5000"
+                          placeholder="What are you working on, and where could clinical expertise help?"
+                          aria-describedby="message-error"></textarea>
+                <span class="control-line" aria-hidden="true"></span>
+              </div>
+              <p class="field-error" id="message-error" hidden></p>
+            </div>
+
+            <div class="form-foot">
+              <button class="btn btn-primary" type="submit">
+                <span class="btn-label">Send message</span>
+                <span class="btn-icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span>
+              </button>
+              <p class="form-privacy">Your details are used only to respond to your message.</p>
+            </div>
+
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="form-success" hidden>
+            <svg class="success-mark" viewBox="0 0 52 52" aria-hidden="true">
+              <circle cx="26" cy="26" r="24"/>
+              <path d="M16 27.5l6.5 6.5L36.5 19"/>
+            </svg>
+            <h3 tabindex="-1">Message sent</h3>
+            <p data-success-text>Thanks. Your message is on its way, and I’ll be in touch by email soon.</p>
+            <button class="link-arrow" type="button" data-form-reset>
+              Send another message
+              <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <p class="footer-statement">Clinical evidence, built into software <em>clinicians trust.</em></p>
+        <a class="footer-email link-sweep" href="mailto:matt@mrhsolutions.co">matt@mrhsolutions.co</a>
+      </div>
+
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand brand-light" href="#top" aria-label="MRH Solutions, back to top">
+            <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <rect width="32" height="32" rx="9" fill="#1d3a33"/>
+              <path d="M16 9.5v6.25M16 15.75 10.5 21.75M16 15.75 21.5 21.75" fill="none" stroke="#f4f0e6" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="16" cy="9.5" r="2.75" fill="#f4f0e6"/>
+              <circle cx="10.5" cy="22" r="2.6" fill="#1d3a33" stroke="#f4f0e6" stroke-width="1.6"/>
+              <circle cx="21.5" cy="22" r="3" fill="#e2a877"/>
+            </svg>
+            <span class="brand-word">MRH <em>Solutions</em></span>
+          </a>
+          <p>Consulting in clinical AI, clinical decision support, and product leadership.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer">
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#work">Experience</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> MRH Solutions. All rights reserved.</p>
+        <a class="back-top" href="#top">
+          Back to top
+          <svg aria-hidden="true"><use href="#i-arrow-up"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

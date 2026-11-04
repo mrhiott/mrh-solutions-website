@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Page not found | MRH Solutions</title>
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <!-- Self-contained so it renders at any URL depth; site fonts load from the root when available -->
+  <style>
+    @font-face { font-family: "Newsreader"; font-weight: 200 800; font-display: swap; src: url("/assets/fonts/newsreader-latin-wght-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Newsreader"; font-style: italic; font-weight: 200 800; font-display: swap; src: url("/assets/fonts/newsreader-latin-wght-italic.woff2") format("woff2"); }
+    @font-face { font-family: "Instrument Sans"; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/instrument-sans-latin-wght-normal.woff2") format("woff2"); }
+    :root { --paper: #f4f0e6; --ink: #0f2622; --text: #34413c; --accent: #9a4f24; --on-dark: #f4f0e6; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      padding: 2rem 1.25rem; background: var(--paper); color: var(--text);
+      font: 1.0625rem/1.65 "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased; text-align: center;
+    }
+    main { max-width: 34rem; }
+    svg { width: 48px; height: 48px; margin: 0 auto 2rem; display: block; }
+    .code { margin: 0 0 1rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+    h1 {
+      margin: 0 0 1rem; color: var(--ink);
+      font: 330 clamp(2.5rem, 8vw, 3.75rem)/1.02 "Newsreader", Georgia, serif; letter-spacing: -0.025em;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+    p a { color: var(--ink); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+    a.btn {
+      display: inline-flex; align-items: center; gap: 0.75rem; min-height: 52px; margin-top: 2rem;
+      padding: 0.4rem 0.4rem 0.4rem 1.5rem; border-radius: 999px; background: var(--ink); color: var(--on-dark);
+      font-weight: 600; text-decoration: none; transition: background-color 0.4s;
+    }
+    a.btn span { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--accent); }
+    a.btn span svg { width: 16px; height: 16px; margin: 0; }
+    a.btn:hover { background: #1d3a33; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <main>
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <rect width="32" height="32" rx="9" fill="#0f2622"/>
+      <path d="M16 9.5v6.25M16 15.75 10.5 21.75M16 15.75 21.5 21.75" fill="none" stroke="#f4f0e6" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="16" cy="9.5" r="2.75" fill="#f4f0e6"/>
+      <circle cx="10.5" cy="22" r="2.6" fill="#0f2622" stroke="#f4f0e6" stroke-width="1.6"/>
+      <circle cx="21.5" cy="22" r="3" fill="#e2a877"/>
+    </svg>
+    <p class="code">Error 404</p>
+    <h1>This page <em>isn’t here.</em></h1>
+    <p>The page you’re looking for doesn’t exist or has moved. Head back to the homepage, or email <a href="mailto:matt@mrhsolutions.co">matt@mrhsolutions.co</a>.</p>
+    <a class="btn" href="/">Back to MRH Solutions
+      <span aria-hidden="true"><svg viewBox="0 0 16 16" width="16" height="16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="#f4f0e6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+  </main>
+</body>
+</html>
