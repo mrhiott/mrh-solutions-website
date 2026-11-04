@@ -56,21 +56,20 @@ Everything visual is driven by the custom properties in the `:root` block at the
 ## Contact form
 
 The form has name, email, company (optional), and message fields, inline validation, a message box that
-grows as you type, and a hidden spam honeypot.
+grows as you type, and a hidden spam honeypot (`_gotcha`, which Formspree filters automatically).
 
-**Default (no setup needed):** the form's `action` is `mailto:matt@mrhsolutions.co`. Submitting opens the
-visitor's email app with the message, name, company, and email already filled in.
+Submissions go to **Formspree** (form ID `xzeeogav`), set as the form's `action` in `index.html`:
 
-**To receive submissions directly** (recommended once the site is live):
+- With JavaScript, `main.js` sends the form in the background and swaps it for a "Message sent"
+  confirmation. If Formspree rejects a field, the message appears under that field; any other failure shows
+  an inline error with the email address as a fallback.
+- Without JavaScript, the browser posts straight to Formspree, which shows its own thank-you page.
+- The email subject reads "New inquiry from {name} ({company}) via mrhsolutions.co", and replying goes to
+  the sender's address.
 
-1. Create a form with a form backend such as [Formspree](https://formspree.io), or any service that accepts
-   a standard HTML form POST and returns a 2xx response.
-2. In `index.html`, change the form's `action` from `mailto:matt@mrhsolutions.co` to your endpoint, for example
-   `action="https://formspree.io/f/abcdwxyz"`.
-
-That is the only change. `main.js` sees an `https://` action, sends the form in the background, and swaps the
-form for a "Message sent" confirmation (or shows an inline error with the email address if sending fails).
-The honeypot field is named `_gotcha`, which Formspree filters automatically.
+Manage notification settings, spam filtering, and allowed domains in the Formspree dashboard. To switch
+services, replace the `action` URL; setting it to `mailto:you@example.com` makes the form open the
+visitor's email app instead.
 
 ## Motion and interaction
 
@@ -105,7 +104,6 @@ first paint) needs a hash or nonce.
 ## Before launch
 
 - [ ] Review the three case studies and the Approach steps, and adjust wording or add metrics you can share
-- [ ] Connect a form endpoint (see above), or keep the `mailto:` default
 - [ ] Optional: add a headshot and a LinkedIn link
 - [ ] Confirm the domain in the canonical/Open Graph tags, `robots.txt`, and `sitemap.xml`
 

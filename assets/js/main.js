@@ -6,7 +6,7 @@
  * - Pointer micro-interactions: hero depth, CTA spotlight
  * - Copy-to-clipboard for the email address
  * - Contact form: validation, auto-growing message field, and submission
- *   (mailto fallback by default, or any form endpoint set as the form action)
+ *   (posts to the Formspree endpoint in the form's action; a mailto: action also works)
  *
  * Everything here is progressive enhancement: the page is complete without it.
  */
@@ -390,9 +390,9 @@
       return;
     }
 
-    // A form endpoint is configured (e.g. Formspree): submit in the background.
+    // Formspree (or another form endpoint): submit in the background.
+    // Formspree uses the "email" field as the reply-to address and "_subject" as the email subject.
     data.append('_subject', 'New inquiry from ' + name + (company ? ' (' + company + ')' : '') + ' via mrhsolutions.co');
-    data.append('_replyto', email);
 
     setBusy(true);
     setStatus('', '');
@@ -403,11 +403,32 @@
       headers: { Accept: 'application/json' }
     })
       .then(function (response) {
-        if (!response.ok) throw new Error('Request failed with status ' + response.status);
-        form.reset();
-        requiredFields.forEach(clearError);
-        autoGrow();
-        showSuccess(name);
+        if (response.ok) {
+          form.reset();
+          requiredFields.forEach(clearError);
+          autoGrow();
+          showSuccess(name);
+          return;
+        }
+        // Formspree explains rejected submissions as { errors: [{ field, message }] }.
+        return response.json().catch(function () { return {}; }).then(function (result) {
+          var fieldErrors = (result && result.errors) || [];
+          var firstField = null;
+          fieldErrors.forEach(function (err) {
+            var field = err.field && form.querySelector('[name="' + err.field + '"]');
+            if (field && requiredFields.indexOf(field) !== -1) {
+              var text = String(err.message || 'Please check this field');
+              showError(field, text.charAt(0).toUpperCase() + text.slice(1) + (/[.!?]$/.test(text) ? '' : '.'));
+              if (!firstField) firstField = field;
+            }
+          });
+          if (firstField) {
+            setStatus('error', 'Please check the highlighted fields.');
+            firstField.focus();
+          } else {
+            throw new Error('Request failed with status ' + response.status);
+          }
+        });
       })
       .catch(function () {
         setStatus('error', 'Sorry, something went wrong sending your message. Please try again or email', true);

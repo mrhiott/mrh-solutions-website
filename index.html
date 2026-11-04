@@ -53,7 +53,7 @@
       "@type": "Person",
       "name": "Matt Hiott",
       "honorificSuffix": "PharmD, MBA",
-      "jobTitle": "Principal"
+      "jobTitle": "Founder"
     },
     "knowsAbout": [
       "Clinical decision support",
@@ -175,7 +175,7 @@
 
           <div class="hero-principal intro intro-4">
             <span class="avatar avatar-sm" aria-hidden="true">MH</span>
-            <p><strong>Matt Hiott, PharmD, MBA</strong><span>Principal, MRH Solutions</span></p>
+            <p><strong>Matt Hiott, PharmD, MBA</strong><span>Founder, MRH Solutions</span></p>
           </div>
         </div>
 
@@ -508,7 +508,7 @@
               <span class="avatar" aria-hidden="true">MH</span>
               <div>
                 <p class="profile-name">Matt Hiott</p>
-                <p class="profile-role">PharmD, MBA · Principal, MRH Solutions</p>
+                <p class="profile-role">PharmD, MBA · Founder, MRH Solutions</p>
               </div>
             </div>
             <dl class="profile-facts">
@@ -583,16 +583,17 @@
 
         <div class="form-card reveal">
           <!--
-            Contact form backend:
-            - By default, "action" is a mailto: link. Submitting opens the visitor's email app
-              with the message pre-filled, so it works with no server.
-            - To receive submissions directly, replace the action with a form endpoint
-              (for example https://formspree.io/f/your-id). main.js will POST the form
-              in the background and show a confirmation inline.
+            Contact form backend: Formspree (form ID xzeeogav).
+            - With JavaScript, main.js validates the fields, sends the form in the background,
+              and shows a confirmation without leaving the page.
+            - Without JavaScript, the browser posts straight to Formspree, which shows its own
+              thank-you page.
+            - To change services, replace the action URL. Setting it to mailto:you@example.com
+              makes the form open the visitor's email app instead.
           -->
           <form id="contact-form" class="contact-form"
-                action="mailto:matt@mrhsolutions.co"
-                method="post" enctype="text/plain"
+                action="https://formspree.io/f/xzeeogav"
+                method="POST"
                 data-contact-email="matt@mrhsolutions.co">
 
             <!-- Spam honeypot: humans never see or fill this field -->
