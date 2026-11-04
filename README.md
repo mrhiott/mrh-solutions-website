@@ -9,15 +9,15 @@ no dependencies. Every file is served as-is, so any static host works.
 
 ```
 .
-├── index.html              # All page content (hero, services, experience, about, CTA, contact)
+├── index.html              # All page content: hero, services, approach, experience, about, CTA, contact
 ├── 404.html                # Self-contained "page not found" page
 ├── robots.txt
 ├── sitemap.xml
 └── assets/
-    ├── css/styles.css      # Design tokens at the top, then one block per section
-    ├── js/main.js          # Mobile menu, active nav link, scroll reveal, contact form
-    ├── fonts/              # Self-hosted Inter + Source Serif 4 (SIL Open Font License)
-    └── img/                # Favicon, Apple touch icon, social share image (og-image.png)
+    ├── css/styles.css      # Design tokens at the top, then one numbered block per section
+    ├── js/main.js          # Menu, header state, scroll reveals, micro-interactions, contact form
+    ├── fonts/              # Self-hosted Newsreader + Instrument Sans (SIL Open Font License)
+    └── img/                # Favicon, Apple touch icon, social share image (og-image.jpg)
 ```
 
 ## Preview locally
@@ -30,23 +30,36 @@ python3 -m http.server 8000
 
 Then open <http://localhost:8000>.
 
+## Design system
+
+Everything visual is driven by the custom properties in the `:root` block at the top of
+`assets/css/styles.css`.
+
+- **Type:** Newsreader (an editorial serif) for headlines and statements; Instrument Sans for body copy and
+  interface text. Both are self-hosted as Latin subsets (about 150 KB total), so the page makes no
+  third-party requests.
+- **Color:** deep spruce (`--ink`, `--dark`), warm ivory (`--paper`, `--card`), and burnished copper
+  (`--accent`, plus `--dark-accent` on dark surfaces), with a sage tint for outcomes. Text colors meet WCAG AA
+  contrast on the surfaces they're used on.
+- **Layout:** a 12-column grid. Section labels ("01 — Services") sit in the left three columns and headings
+  start at column four, which gives every section the same alignment.
+
 ## Editing content
 
 - **Copy:** all text lives in `index.html`. Each section starts with a comment banner such as
   `<!-- ============ Services ============ -->`.
-- **Colors, fonts, spacing:** change the CSS custom properties in the `:root` block at the top of
-  `assets/css/styles.css`. The brand teal is `--brand` and the dark navy is `--ink`.
 - **Headshot:** the About section shows an "MH" monogram. To use a photo, add it to `assets/img/` and
   follow the comment next to the monogram in `index.html`.
-- **Social share image:** `assets/img/og-image.png` (1200×630) is what LinkedIn, Slack, and others show
+- **Social share image:** `assets/img/og-image.jpg` (1200×630) is what LinkedIn, Slack, and others show
   when the link is shared.
 
 ## Contact form
 
-The form has name, email, and message fields, inline validation, and a hidden spam honeypot.
+The form has name, email, company (optional), and message fields, inline validation, a message box that
+grows as you type, and a hidden spam honeypot.
 
 **Default (no setup needed):** the form's `action` is `mailto:matt@mrhsolutions.co`. Submitting opens the
-visitor's email app with the message already filled in.
+visitor's email app with the message, name, company, and email already filled in.
 
 **To receive submissions directly** (recommended once the site is live):
 
@@ -55,9 +68,23 @@ visitor's email app with the message already filled in.
 2. In `index.html`, change the form's `action` from `mailto:matt@mrhsolutions.co` to your endpoint, for example
    `action="https://formspree.io/f/abcdwxyz"`.
 
-That is the only change. `main.js` sees an `https://` action, sends the form in the background, and shows a
-success or error message without leaving the page. The honeypot field is named `_gotcha`, which Formspree
-filters automatically.
+That is the only change. `main.js` sees an `https://` action, sends the form in the background, and swaps the
+form for a "Message sent" confirmation (or shows an inline error with the email address if sending fails).
+The honeypot field is named `_gotcha`, which Formspree filters automatically.
+
+## Motion and interaction
+
+- The hero headline rises in line by line, and the illustration plays out like a live recommendation:
+  patient context, then the alert, then the guideline lifecycle ticking through its steps.
+- Sections fade up as they scroll into view; items that arrive together are staggered automatically.
+- The Approach timeline draws itself and lights each step in turn.
+- Buttons, links, service rows, and case studies have subtle hover states. On mouse and trackpad devices
+  the hero illustration shifts slightly with the pointer, and a soft spotlight follows it across the
+  call-to-action panel.
+- A thin progress bar under the header tracks reading position.
+
+All of it is skipped for visitors who set "reduce motion", and none of it is required: without JavaScript the
+page is fully readable, the menu becomes a row of links, and the form falls back to a plain `mailto:` submit.
 
 ## Deploying
 
@@ -71,16 +98,20 @@ The site is static, so deploy the repository root as-is. No build command is nee
 If the site will live somewhere other than `https://mrhsolutions.co/`, update the canonical URL, the
 `og:url` and `og:image` tags, and the JSON-LD block in `index.html`, plus `robots.txt` and `sitemap.xml`.
 
+The markup has no inline `style` attributes or inline event handlers, so a strict Content-Security-Policy is
+straightforward; the one small inline script in `<head>` (which sets the `js` and `motion` classes before
+first paint) needs a hash or nonce.
+
 ## Before launch
 
-- [ ] Review the three case studies in the Selected Experience section and adjust wording or add metrics you can share
+- [ ] Review the three case studies and the Approach steps, and adjust wording or add metrics you can share
 - [ ] Connect a form endpoint (see above), or keep the `mailto:` default
 - [ ] Optional: add a headshot and a LinkedIn link
 - [ ] Confirm the domain in the canonical/Open Graph tags, `robots.txt`, and `sitemap.xml`
 
-## Accessibility and performance notes
+## Accessibility notes
 
-- Semantic landmarks, a skip link, visible focus states, and labeled form fields with announced errors
-- Works without JavaScript: the menu becomes a row of links and the form falls back to a plain `mailto:` submit
+- Semantic landmarks, a skip link, visible focus states, labeled form fields with announced errors
+- The full-screen menu moves focus into itself, makes the page behind it inert, and closes with Escape
+- Decorative illustration is hidden from assistive technology
 - Respects `prefers-reduced-motion`
-- Fonts are self-hosted (about 150 KB total, Latin subset), so the page makes no third-party requests
